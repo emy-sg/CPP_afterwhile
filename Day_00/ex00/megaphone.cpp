@@ -4,7 +4,7 @@
 /*
    			https://www.geeksforgeeks.org/isalpha-isdigit-functions-c-example/
 
-	int isalpha(int c); // tests for any character for which "isupper()" or "islower()"
+	int isalpha(int c); // tests if it's a character, it can be "isupper()" or "islower()"
 	==> The "isalpha()" function returns zero if the character tests false 
    			and returns non-zero if the character tests true.
 
@@ -31,8 +31,11 @@
 std::string	megaphone(char *string)
 {
 	std::string str = string;
+
 	int	i = 0;
-	while (i < str.length())
+	int length_of_str = str.length();
+
+	while (i < length_of_str)
 	{
 		str[i] = toupper(string[i]);
 		i++;
