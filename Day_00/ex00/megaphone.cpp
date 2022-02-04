@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cctype>
+#include <cctype>      // toupper(), isalnum() ==> in C "ctype.h"
 
 /*
    			https://www.geeksforgeeks.org/isalpha-isdigit-functions-c-example/
