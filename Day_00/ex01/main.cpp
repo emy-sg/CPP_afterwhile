@@ -33,7 +33,7 @@ int main()
 		else if (command.compare("ADD") == 0)
 		{
 			phonebook.add();
-			Phonebook::set_count();
+			Phonebook::setCount();
 		}
 		else
 		{

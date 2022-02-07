@@ -10,31 +10,45 @@
 
 class Contact
 {
-	public:
+	private:
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;
 		std::string phone_number;
 		std::string darkest_secret;
 
+	public:
 		Contact();
 		~Contact();
-		int index;
+		
+		void	setFirst_name(std::string str);
+		void	setLast_name(std::string str);
+		void	setNickname(std::string str);
+		void	setPhone_number(std::string str);
+		void	setDarkest_secret(std::string str);
+
+		std::string	getFirst_name();
+		std::string	getLast_name();
+		std::string	getNickname();
+		std::string	getPhone_number();
+		std::string	getDarkest_secret();	
 };
 
+
+
+
 class Phonebook{
-	public:
+	private:
+		static int count;
 		Contact contacts[8];
 
+	public:
 		Phonebook();
 		~Phonebook();
-		static int count;
-		static int get_count(){
-			return count;
-		}
-		static void set_count(){
-			count++;
-		}
+
+		static int getCount();
+		static void setCount();
+
 		void add();
 		void search();
 };

@@ -1,3 +1,25 @@
-NAME = https://sodocumentation.net/makefile
-	https://www.theurbanpenguin.com/4184-2/
-	https://web.physics.utah.edu/~p5720/rsrc/make.html
+NAME = my_awesome_phonebook
+
+CC = c++
+
+CFLAGS = -Wall -Wextra -Werror
+
+SRCS =	main.cpp \
+		contacts.cpp \
+		phonebook.cpp
+
+OBJS = $(SRCS:.c=.o)
+
+all: $(NAME)
+	@ echo "\033[1;35m The name of the executable is: my_awesome_phonebook\n\033[0m"
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	rm $(NAME)
+
+fclean: clean
+	rm $(OBJS)
+
+re: fclean all 

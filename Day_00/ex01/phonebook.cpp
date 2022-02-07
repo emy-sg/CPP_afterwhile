@@ -29,45 +29,63 @@
 // ==> If a ninth contact is added, replace the oldest contact.
 // ADD command, SEARCH command, EXIT command.
 
+
+int Phonebook::count = 0;
+
 Phonebook::Phonebook(){
 }
 
 Phonebook::~Phonebook(){
 }
 
-int Phonebook::count = 0;
+int Phonebook::getCount(){
+	return count;
+}
+		
+void Phonebook::setCount(){
+	count++;
+}
 
-void Phonebook::add(){
-	contacts[Phonebook::get_count()%8].index = Phonebook::get_count()%8;
+void Phonebook::add() {
+	std::string str;
+
+	setCount();
 
 	std::cout << "The first name: ";
 	//std::cin >> contacts[Phonebook::get_count()%8].first_name;    // ==>  cin take just the first word of line
-	std::getline(std::cin, contacts[Phonebook::get_count()%8].first_name);
+	//std::getline(std::cin, contacts[Phonebook::get_count()%8].first_name);
+	std::getline(std::cin, str);
+	contacts[getCount()%8].setFirst_name(str);
+
+	//setContact(Phonebook::get_count()%8, str);	
 
 	std::cout << "The last name: ";
 	//std::cin >> contacts[Phonebook::get_count()%8].last_name;    // ==> cin take just the first word of line
-	std::getline(std::cin, contacts[Phonebook::get_count()%8].last_name);
+	std::getline(std::cin, str);
+	contacts[getCount()%8].setLast_name(str);
 
 	std::cout << "The nickname: ";
 	//std::cin >> contacts[Phonebook::get_count()%8].nickname;	  // ==> cin take just the first word of line
-	std::getline(std::cin, contacts[Phonebook::get_count()%8].nickname);
+	std::getline(std::cin, str);
+	contacts[getCount()%8].setNickname(str);
 
 	std::cout << "The phone number: ";
 	//std::cin >> contacts[Phonebook::get_count()%8].phone_number;	 // ==> cin take just the first word of line
-	std::getline(std::cin, contacts[Phonebook::get_count()%8].phone_number);
+	std::getline(std::cin, str);
+	contacts[getCount()%8].setPhone_number(str);
 
 	std::cout << "The darkest secret: ";
 	//std::cin >> contacts[Phonebook::get_count()%8].darkest_secret;	 // ==> cin take just the first word of line
-	std::getline(std::cin, contacts[Phonebook::get_count()%8].darkest_secret);
+	std::getline(std::cin, str);
+	contacts[getCount()%8].setDarkest_secret(str);
 }
 
 void Phonebook::search(){
-	int i = 0;
+	int i = 1;
 	int j = 8;
-	Contact contact;
 
-	if (Phonebook::get_count() < 8)
-		j = Phonebook::get_count();
+	if (getCount() < 8)
+		j = getCount();
 
 	if (j == 0)
 		return ;
@@ -80,11 +98,10 @@ void Phonebook::search(){
 
 	while (i < j)
 	{
-		contact = contacts[i];
-		std::cout << std::left << std::setw(10) << contact.index << "|";
-		display(contact.first_name);
-		display(contact.last_name);
-		display(contact.nickname);
+		std::cout << std::left << std::setw(10) << i << "|";
+		display(contacts[i].getFirst_name());
+		display(contacts[i].getLast_name());
+		display(contacts[i].getNickname());
 		std::cout << std::endl;
 		i++;
 	}
