@@ -4,13 +4,18 @@
 #include <iostream>
 
 class Karen{
-	void debug( void);
-	void info( void);
-	void warning( void);
-	void error( void);
+	private:
+		void debug( void);
+		void info( void);
+		void warning( void);
+		void error( void);
 
 	public:
+		Karen(void);
+		~Karen(void);
 		void complain(std::string level);
 };
+
+typedef void Karen::
 
 #endif
