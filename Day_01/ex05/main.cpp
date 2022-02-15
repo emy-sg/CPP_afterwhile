@@ -15,6 +15,20 @@
 }*/
 
 int main() {
-		
+	Karen	obj;
+	std::string str;
+
+	str = "INFO";
+	obj.complain(str);
+
+	str = "ERROR";
+	obj.complain(str);
+
+	str = "DEBUG";
+	obj.complain(str);
+
+	str = "WARNING";
+	obj.complain(str);
+	return (0);
 }
 
