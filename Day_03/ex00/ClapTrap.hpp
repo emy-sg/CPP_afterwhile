@@ -1,21 +1,41 @@
 # ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
-#include <iostream>
+class ClapTrap {
+	private:
+		std::string	name;
+		int			hitpoints;
+		int			energy;
+		int			Attack_damage;
 
-class ClapTrap{
-	std::string Name;
-	int Hitpoints = 10;
-	int Energy_points = 10;
-	int Attack_damage = 0;
-	
 	public:
+		/*   Orthodox Canonical Form:
+
+		 			-Default constructor
+					-Copy constructor: initialize an object from another object of the same class.
+					-Copy assignement operator
+					-Destructor
+		*/
+
+		//default constructor
 		ClapTrap();
-		ClapTrap(std::string);
-		~ClapTrap();
 		
-		void attack(std::string const & target);
+		//Destructor
+		~ClapTrap();
+
+		//Copy constructor
+		ClapTrap(const ClapTrap&);
+
+		//Copy assignement operator
+		ClapTrap& operator=(const ClapTrap&);
+
+		//parameterized constructor
+		ClapTrap(std::string str);
+
+		void attack(const std::string& target);
+
 		void takeDamage(unsigned int amount);
+
 		void beRepaired(unsigned int amount);
 };
 

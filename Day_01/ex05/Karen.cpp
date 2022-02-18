@@ -4,7 +4,7 @@ Karen::Karen() {
 	std::cout << "Karen Constructor has been called" << std::endl;
 }
 
-karen::~Karen() {
+Karen::~Karen() {
 	std::cout << "Karen Destructor has been called" << std::endl;
 }
 
@@ -24,19 +24,37 @@ void Karen::error() {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+typedef void (Karen::*ptr_to_debug) (void);
+
 void Karen::complain(std::string level) {
+	ptr_to_debug ptr[] = {&Karen::debug,
+				 &Karen::info,
+				&Karen::warning,
+				 &Karen::error};
+	int i=0;
+	int j = 4;
+	for(i < j)
+	{
+		if (
+	}
+
 	switch (level[0]) {
 		case 'D':
-			this->debug();
+			(this->*ptr[0]) ();
+			//this->debug();
 			break;
 		case 'I':
-			this->info();
+			(this->*ptr[1]) ();
+			//this->info();
 			break;
 		case 'W':
-			this->warning();
+			(this->*ptr[2]) ();
+			//this->warning();
 			break;
 		case 'E':
-			this->error();
+			(this->*ptr[3]) ();
+			//this->error();
 			break;
+		default
 	}
 }

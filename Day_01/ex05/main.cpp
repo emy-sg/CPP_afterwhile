@@ -19,15 +19,19 @@ int main() {
 	std::string str;
 
 	str = "INFO";
+	std::cout << "====> "  << "Karen" << " " << str << std::endl;
 	obj.complain(str);
 
 	str = "ERROR";
+	std::cout << "====> "  << "Karen" << " " << str << std::endl;
 	obj.complain(str);
 
 	str = "DEBUG";
+	std::cout << "====> "  << "Karen" << " " << str << std::endl;
 	obj.complain(str);
 
 	str = "WARNING";
+	std::cout << "====> "  << "Karen" << " " << str << std::endl;
 	obj.complain(str);
 	return (0);
 }
