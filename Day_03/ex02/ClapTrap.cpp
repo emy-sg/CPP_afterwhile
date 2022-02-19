@@ -12,8 +12,8 @@ ClapTrap::ClapTrap(std::string str) {
 	std::cout << "Parameterized Constructor ClapTrap has been called" << std::endl;
 	name = str;
 	hitpoints = 100;
-	energy = 50;
-	Attack_damage = 20;
+	energy = 300;
+	Attack_damage = 30;
 }
 
 // Copy Constructor

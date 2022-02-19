@@ -16,14 +16,18 @@ ClapTrap::ClapTrap(std::string str) {
 	Attack_damage = 0;
 }
 
+// Copy Constructor
 ClapTrap::ClapTrap(const ClapTrap& instance) {
+	std::cout << "Copy Constructor has been called" << std::endl;
 	name = instance.name;
 	hitpoints = instance.hitpoints;
 	energy = instance.energy;
 	Attack_damage = instance.Attack_damage;
 }
 
+// Copy Assignment Operator
 ClapTrap& ClapTrap::operator=(const ClapTrap& instance) {
+	std::cout << "Copy Assignment Operator has been called" << std::endl;
 	name = instance.name;
 	hitpoints = instance.hitpoints;
 	energy = instance.energy;
@@ -31,7 +35,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& instance) {
 	return (*this);
 }
 
-// Attack it causes to lose hit points, Attacking cost 1 energy point
+
+// Member functions:
+
+
+//  Attacking cost 1 energy point
 void ClapTrap::attack(const std::string& target) {
 	if (energy > 0 && hitpoints > 0)
 	{
@@ -40,18 +48,19 @@ void ClapTrap::attack(const std::string& target) {
 	}
 }
 
-// ClapTrap repairs itself, repairing cost 1 energy point
+// Repairing cost 1 energy point
 void	ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << "Call beRepaired function" << std::endl;
 	if (energy > 0 && hitpoints > 0)
 	{
+		std::cout << "ClapTrap " << name << " gets " << amount << " hit points back." << std::endl;
 		hitpoints += amount;
 		energy--;
 	}
 }
 
-// ClapTrap takeDamage,
+// Lose amount of hit points(health points)
 void	ClapTrap::takeDamage(unsigned int amount) {
+	std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
 	std::cout << "Call takeDamage function" << std::endl;
 	hitpoints -= amount;
 }
